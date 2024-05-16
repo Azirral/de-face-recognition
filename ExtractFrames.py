@@ -39,7 +39,7 @@ def extract_frames(video_path, frames_dir, overwrite=False, start=-1, end=-1, ev
         frames = vr.get_batch(frames_list).asnumpy()
 
         for index, frame in zip(frames_list, frames):  # lets loop through the frames until the end
-            save_path = os.path.join(frames_dir, video_filename, "{:010d}.jpg".format(index))  # create the save path
+            save_path = os.path.join(frames_dir, video_filename, "{:010d}.jpeg".format(index))  # create the save path
             if not os.path.exists(save_path) or overwrite:  # if it doesn't exist or we want to overwrite anyways
                 cv2.imwrite(save_path, cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))  # save the extracted image
                 saved_count += 1  # increment our counter by one
@@ -49,7 +49,7 @@ def extract_frames(video_path, frames_dir, overwrite=False, start=-1, end=-1, ev
             frame = vr[index]  # read an image from the capture
 
             if index % every == 0:  # if this is a frame we want to write out based on the 'every' argument
-                save_path = os.path.join(frames_dir, video_filename, "{:010d}.jpg".format(index))  # create the save path
+                save_path = os.path.join(frames_dir, video_filename, "{:010d}.jpeg".format(index))  # create the save path
                 if not os.path.exists(save_path) or overwrite:  # if it doesn't exist or we want to overwrite anyways
                     cv2.imwrite(save_path, cv2.cvtColor(frame.asnumpy(), cv2.COLOR_RGB2BGR))  # save the extracted image
                     saved_count += 1  # increment our counter by one
