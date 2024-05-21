@@ -22,7 +22,7 @@ def detect_face(image_path,target_path):
     # passing the algorithm to OpenCV
     haar_cascade = cv2.CascadeClassifier(alg)
     # detecting the faces
-    faces = haar_cascade.detectMultiScale(gray_img, scaleFactor=1.05, minNeighbors=2, minSize=(90, 90))
+    faces = haar_cascade.detectMultiScale(gray_img, scaleFactor=1.05, minNeighbors=1, minSize=(90, 90))
     # for each face detected
     for x, y, w, h in faces:
         # crop the image to select only the face
@@ -54,6 +54,7 @@ if __name__ == '__main__':
         if item.endswith(".jpeg"):
             detect_face(os.path.join(file_path,item),os.path.join("target",item))
 
+    print("Faces detected")
     img_embeddings = [generate_embeddings(os.path.join("target",item)) for item in os.listdir("target")]
     print(len(img_embeddings))
     #
