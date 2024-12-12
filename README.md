@@ -27,3 +27,6 @@ This directory contains created plots for purpose of visual analysis of datasets
 
 ### LatexTables
 This directory contains Latex tables created for exporting to Overleaf to be included in the thesis.
+
+### AdamSobczukOskarKołoszkoEngineeringThesis.pdf
+The thesis in question.
